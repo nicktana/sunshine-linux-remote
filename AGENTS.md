@@ -98,3 +98,15 @@ confirmed, tell the author in the review summary that the PR needs to be rebased
 merging. Do not infer conflicts from an unknown or pending mergeability status.
 
 When approving a pull request, the approval itself is sufficient. Do not add a comment solely to accompany it.
+
+## Linux remote desktop work
+
+- Use [the Linux remote sessions design](docs/design/linux-remote-sessions.md) to guide work on physical
+  seat access and independent virtual sessions. Keep the existing Linux user-session path working.
+- Treat greeter access as an explicitly authorized capability. Keep network handlers and app commands
+  unprivileged, scope capture and input to the selected desktop, and revoke access when the target changes.
+- Test pre-login behavior, seat transitions, and cross-session isolation in disposable Linux environments.
+  Obtain explicit authorization before modifying host display-manager configuration, service files, or
+  the installed Sunshine application, or running privileged commands on the host.
+- During design-only work, limit changes to the requested documentation. Leave commits and pushes for
+  explicit authorization.
